@@ -51,10 +51,10 @@ AddItUp:
 	j loop
 	
 loop:
-	bge	t0, t2, return	#if i >= n, branch to 0
-	addi	t0, t0, 1	#i++
+	bge	t0, t2, return	#if i >= n, branch to return
 	addi	t3, t0, 1	#t3 = i+1
 	add	t1, t1, t3	#x = x + i + 1
+	addi	t0, t0, 1	#i++
 	j loop
 return:
 	ret

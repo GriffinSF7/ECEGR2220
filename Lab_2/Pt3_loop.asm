@@ -25,9 +25,9 @@ loop:
 	j loop #loop
 
 do:
-	slti	t3, s1, 100 # if Z < 100, t3 = 1  
+	addi	t3, x0, 100
+	bge	s1, t3, while # if Z >= 100, branch to while 
 	addi	s1, s1, 1  # Z++
-	beq	t3, x0, while # if t3 = 0, means Z >= 100, branch to while
 	j do #loop
 	
 while:
