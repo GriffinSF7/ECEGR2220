@@ -161,7 +161,11 @@ architecture calc of adder_subtracter is
 	end component;
 	signal data_b: std_logic_vector(31 downto 0);
 begin
-	data_b <= not(datain_b) + "0000000000000001";
+	data_b <= datain_b;
+	with add_sub select
+		data_b <= not(datain_b) when '1',
+			  datain_b when others;
+	data_b <= data_b + "0000000000000001";
 	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), add_sub, dataout(0), co);
 	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), add_sub, dataout(1), co);
 	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), add_sub, dataout(2), co);

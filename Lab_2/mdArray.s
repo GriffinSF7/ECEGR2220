@@ -1,8 +1,8 @@
 #  Example program to compute the sum of diagonal
-#  in a square two­dimensional array
-#  Demonstrates multi­dimension array indexing.
-#  Assumes row­major ordering.
-# ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+#  in a square twoï¿½dimensional array
+#  Demonstrates multiï¿½dimension array indexing.
+#  Assumes rowï¿½major ordering.
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 #  Data Declarations
 .data
@@ -18,28 +18,28 @@ dSum: 		.word 0
 
 DATASIZE:	.word 4 		# 4 bytes for words
 
-finalMsg: 	.ascii "Two­Dimensional Diagonal" 
+finalMsg: 	.ascii "Twoï¿½Dimensional Diagonal" 
 	  	.ascii "Summation\n\n"
 	  	.asciz "Diagonal Sum = "
 
 
-# ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #  Text/code section
 .text
 .globl main
 
 main:
 
-# ­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½
 #  Call function to sum the diagaonal
-# (of square two­dimensional array)
+# (of square twoï¿½dimensional array)
 
     la  a0, mdArray 	# base address of array
     lw  a1, size 		# array size
     jal diagSummer
     sw  a0, dSum, t0
 
-# ­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½
 #  Display final result.
 
     li  a7, 4 			# print prompt string
@@ -50,7 +50,7 @@ main:
     lw  a0, dSum
     ecall
 
-# ­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½
 # Done, terminate program.
 
     li  a7, 10 			# call code for terminate
@@ -59,25 +59,25 @@ main:
 .end main
 
 
-# ­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #  Simple function to sum the diagonals of a
-#  square two­dimensional array.
+#  square twoï¿½dimensional array.
 
 #  Approach
-#	loop i = 0 to len­1
+#	loop i = 0 to lenï¿½1
 #		sum = sum + mdArray[i][i]
 
-#  Note, for two­dimensional array:
+#  Note, for twoï¿½dimensional array:
 #   addr = baseAddr+(rowIndex*colSize+colIndex) * dataSize
-#  Since the two­dimensional array is given as square, the 
+#  Since the twoï¿½dimensional array is given as square, the 
 #  row and column dimensions are the same (i.e., size).
 
-# ­­­­­
+# ï¿½ï¿½ï¿½ï¿½ï¿½
 #  Arguments
-#	$a0 ­ array base address
-#	$a1 ­ size (of square two­dimension array)
+#	$a0 ï¿½ array base address
+#	$a1 ï¿½ size (of square twoï¿½dimension array)
 #  Returns
-#	$a0 ­ sum of diagonals
+#	$a0 ï¿½ sum of diagonals
 
 .globl diagSummer
 

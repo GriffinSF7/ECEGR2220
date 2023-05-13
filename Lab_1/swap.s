@@ -12,7 +12,7 @@ main:
 	la	a0, zing	#address of zing array
 	li	a1, 4
 	jal	swap
-	
+		
 	li	a7, 4		#system call for printing a string
 	la	a0, str1
 	ecall
