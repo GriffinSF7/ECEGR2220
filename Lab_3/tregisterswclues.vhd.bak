@@ -56,7 +56,7 @@ ARCHITECTURE behavior OF testreg_vhd IS
 	SIGNAL shdataout:	std_logic_vector(31 downto 0);
 	SIGNAL dataout: std_logic_vector(31 downto 0);
 	SIGNAL co :  std_logic;
-
+	SIGNAL data_display: std_logic_vector(31 downto 0);
 BEGIN
 
 	-- Instantiate the Unit Under Test (UUT)
@@ -65,8 +65,8 @@ BEGIN
 		datain_b => datain_b,
 		add_sub => add_sub,
 		dataout => addsubdataout,
-		co => co
-	);
+		co => co,
+		data_disp => data_disp);
 	
 	uut2: register32 PORT MAP(
 		datain => datain,

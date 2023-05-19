@@ -18,7 +18,7 @@ entity ALU is
 end entity ALU;
 
 architecture ALU_Arch of ALU is
-	-- ALU components
+	-- ALU components	
 	component adder_subtracter
 		port(	datain_a: in std_logic_vector(31 downto 0);
 			datain_b: in std_logic_vector(31 downto 0);

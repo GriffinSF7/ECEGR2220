@@ -128,6 +128,7 @@ begin
 				"110" when "110",
 				"111" when others;
 				
+	
 	r0: register8 PORT MAP(datain(7 downto 0), en_check(0), wri_check(0), r0_out);
 	r1: register8 PORT MAP(datain(15 downto 8),en_check(1), wri_check(1), r1_out);
 	r2: register8 PORT MAP(datain(23 downto 16),en_check(2), wri_check(2), r2_out);
@@ -147,8 +148,7 @@ entity adder_subtracter is
 		datain_b: in std_logic_vector(31 downto 0);
 		add_sub: in std_logic;
 		dataout: out std_logic_vector(31 downto 0);
-		co: out std_logic;
-		data_disp: out std_logic_vector(31 downto 0));
+		co: out std_logic);
 end entity adder_subtracter;
 
 architecture calc of adder_subtracter is
@@ -160,49 +160,44 @@ architecture calc of adder_subtracter is
 	          carry : out std_logic);
 	end component;
 	signal data_b: std_logic_vector(31 downto 0);
-	signal carryin: std_logic_vector(31 downto 0) :=x"00000000";
-	signal datab_comp: std_logic_vector(31 downto 0);
-	
+	signal carryin: std_logic;
+	signal carryin2: std_logic :='1';
 begin
 	data_b <= datain_b;
-	datab_comp <= not(datain_b(31))&not(datain_b(30))&not(datain_b(29))&not(datain_b(28))&not(datain_b(27))&not(datain_b(26))&not(datain_b(25))&not(datain_b(24))&not(datain_b(23))&not(datain_b(22))&not(datain_b(21))&not(datain_b(20))
-			&not(datain_b(19))&not(datain_b(18))&not(datain_b(17))&not(datain_b(16))&not(datain_b(15))&not(datain_b(14))&not(datain_b(13))&not(datain_b(12))&not(datain_b(11))&not(datain_b(10))&not(datain_b(9))&not(datain_b(8))
-			&not(datain_b(7))&not(datain_b(6))&not(datain_b(5))&not(datain_b(4))&not(datain_b(3))&not(datain_b(2))&not(datain_b(1))&not(datain_b(0));
 	with add_sub select
-		data_b <= datab_comp + "0000000000000001" when '1',
+		data_b <= not(datain_b) + "0000000000000001" when '1',
 			  datain_b when others;
-	data_disp <= datab_comp;
-	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), carryin(0), dataout(0), carryin(1));
-	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), carryin(1), dataout(1), carryin(2));
-	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), carryin(2), dataout(2), carryin(3));
-	full_add3: fulladder PORT MAP(datain_a(3), data_b(3), carryin(3), dataout(3), carryin(4));
-	full_add4: fulladder PORT MAP(datain_a(4), data_b(4), carryin(4), dataout(4), carryin(5));
-	full_add5: fulladder PORT MAP(datain_a(5), data_b(5), carryin(5), dataout(5), carryin(6));
-	full_add6: fulladder PORT MAP(datain_a(6), data_b(6), carryin(6), dataout(6), carryin(7));
-	full_add7: fulladder PORT MAP(datain_a(7), data_b(7), carryin(7), dataout(7), carryin(8));
-	full_add8: fulladder PORT MAP(datain_a(8), data_b(8), carryin(8), dataout(8), carryin(9));	
-	full_add9: fulladder PORT MAP(datain_a(9), data_b(9), carryin(9), dataout(9), carryin(10));
-	full_add10: fulladder PORT MAP(datain_a(10), data_b(10), carryin(10), dataout(10), carryin(11));
-	full_add11: fulladder PORT MAP(datain_a(11), data_b(11), carryin(11), dataout(11), carryin(12));
-	full_add12: fulladder PORT MAP(datain_a(12), data_b(12), carryin(12), dataout(12), carryin(13));
-	full_add13: fulladder PORT MAP(datain_a(13), data_b(13), carryin(13), dataout(13), carryin(14));
-	full_add14: fulladder PORT MAP(datain_a(14), data_b(14), carryin(14), dataout(14), carryin(15));
-	full_add15: fulladder PORT MAP(datain_a(15), data_b(15), carryin(15), dataout(15), carryin(16));
-	full_add16: fulladder PORT MAP(datain_a(16), data_b(16), carryin(16), dataout(16), carryin(17));
-	full_add17: fulladder PORT MAP(datain_a(17), data_b(17), carryin(17), dataout(17), carryin(18));
-	full_add18: fulladder PORT MAP(datain_a(18), data_b(18), carryin(18), dataout(18), carryin(19));
-	full_add19: fulladder PORT MAP(datain_a(19), data_b(19), carryin(19), dataout(19), carryin(20));
-	full_add20: fulladder PORT MAP(datain_a(20), data_b(20), carryin(20), dataout(20), carryin(21));
-	full_add21: fulladder PORT MAP(datain_a(21), data_b(21), carryin(21), dataout(21), carryin(22));
-	full_add22: fulladder PORT MAP(datain_a(22), data_b(22), carryin(22), dataout(22), carryin(23));
-	full_add23: fulladder PORT MAP(datain_a(23), data_b(23), carryin(23), dataout(23), carryin(24));
-	full_add24: fulladder PORT MAP(datain_a(24), data_b(24), carryin(24), dataout(24), carryin(25));
-	full_add25: fulladder PORT MAP(datain_a(25), data_b(25), carryin(25), dataout(25), carryin(26));
-	full_add26: fulladder PORT MAP(datain_a(26), data_b(26), carryin(26), dataout(26), carryin(27));
-	full_add27: fulladder PORT MAP(datain_a(27), data_b(27), carryin(27), dataout(27), carryin(28));
-	full_add28: fulladder PORT MAP(datain_a(28), data_b(28), carryin(28), dataout(28), carryin(29));
-	full_add29: fulladder PORT MAP(datain_a(29), data_b(29), carryin(29), dataout(29), carryin(30));
-	full_add30: fulladder PORT MAP(datain_a(30), data_b(30), carryin(30), dataout(30), carryin(31));
+	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), carryin(0), dataout(0), co => carryin(1));
+	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), carryin(1), dataout(1), co => carryin(2));
+	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), carryin(2), dataout(2), co => carryin(3));
+	full_add3: fulladder PORT MAP(datain_a(3), data_b(3), carryin(3), dataout(3), co => carryin(4));
+	full_add4: fulladder PORT MAP(datain_a(4), data_b(4), carryin(4), dataout(4), co => carryin(5));
+	full_add5: fulladder PORT MAP(datain_a(5), data_b(5), carryin(5), dataout(5), co => carryin(6));
+	full_add6: fulladder PORT MAP(datain_a(6), data_b(6), carryin(6), dataout(6), co => carryin(7));
+	full_add7: fulladder PORT MAP(datain_a(7), data_b(7), carryin(7), dataout(7), co => carryin(8));
+	full_add8: fulladder PORT MAP(datain_a(8), data_b(8), carryin(8), dataout(8), co => carryin(9));	
+	full_add9: fulladder PORT MAP(datain_a(9), data_b(9), carryin(9), dataout(9), co => carryin(10));
+	full_add10: fulladder PORT MAP(datain_a(10), data_b(10), carryin(10), dataout(10), co => carryin(11));
+	full_add11: fulladder PORT MAP(datain_a(11), data_b(11), carryin(11), dataout(11), co => carryin(12));
+	full_add12: fulladder PORT MAP(datain_a(12), data_b(12), carryin(12), dataout(12), co => carryin(13));
+	full_add13: fulladder PORT MAP(datain_a(13), data_b(13), carryin(13), dataout(13), co => carryin(14));
+	full_add14: fulladder PORT MAP(datain_a(14), data_b(14), carryin(14), dataout(14), co => carryin(15));
+	full_add15: fulladder PORT MAP(datain_a(15), data_b(15), carryin(15), dataout(15), co => carryin(16));
+	full_add16: fulladder PORT MAP(datain_a(16), data_b(16), carryin(16), dataout(16), co => carryin(17));
+	full_add17: fulladder PORT MAP(datain_a(17), data_b(17), carryin(17), dataout(17), co => carryin(18));
+	full_add18: fulladder PORT MAP(datain_a(18), data_b(18), carryin(18), dataout(18), co => carryin(19));
+	full_add19: fulladder PORT MAP(datain_a(19), data_b(19), carryin(19), dataout(19), co => carryin(20));
+	full_add20: fulladder PORT MAP(datain_a(20), data_b(20), carryin(20), dataout(20), co => carryin(21));
+	full_add21: fulladder PORT MAP(datain_a(21), data_b(21), carryin(21), dataout(21), co => carryin(22));
+	full_add22: fulladder PORT MAP(datain_a(22), data_b(22), carryin(22), dataout(22), co => carryin(23));
+	full_add23: fulladder PORT MAP(datain_a(23), data_b(23), carryin(23), dataout(23), co => carryin(24));
+	full_add24: fulladder PORT MAP(datain_a(24), data_b(24), carryin(24), dataout(24), co => carryin(25));
+	full_add25: fulladder PORT MAP(datain_a(25), data_b(25), carryin(25), dataout(25), co => carryin(26));
+	full_add26: fulladder PORT MAP(datain_a(26), data_b(26), carryin(26), dataout(26), co => carryin(27));
+	full_add27: fulladder PORT MAP(datain_a(27), data_b(27), carryin(27), dataout(27), co => carryin(28));
+	full_add28: fulladder PORT MAP(datain_a(28), data_b(28), carryin(28), dataout(28), co => carryin(29));
+	full_add29: fulladder PORT MAP(datain_a(29), data_b(29), carryin(29), dataout(29), co => carryin(30));
+	full_add30: fulladder PORT MAP(datain_a(30), data_b(30), carryin(30), dataout(30), co => carryin(31));
 	full_add31: fulladder PORT MAP(datain_a(31), data_b(31), carryin(31), dataout(31), co);
 
 end architecture calc;
