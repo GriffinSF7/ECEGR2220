@@ -21,8 +21,8 @@ ARCHITECTURE behavior OF testreg_vhd IS
 		datain_b : IN std_logic_vector(31 downto 0);
 		add_sub : IN std_logic;          
 		dataout : OUT std_logic_vector(31 downto 0);
-		co : OUT std_logic;
-		data_disp: OUT std_logic_vector(31 downto 0));
+		co : OUT std_logic);
+		--data_disp: OUT std_logic_vector(31 downto 0));
 		
 	END COMPONENT;
 	

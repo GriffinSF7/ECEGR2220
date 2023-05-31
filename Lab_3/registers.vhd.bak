@@ -27,7 +27,7 @@ begin
 	end process;
 	
 	-- Note that data is output only when enout = 0	
-	bitout <= q when enout = '0' else 'Z';
+	bitout <= q when enout = '0' else '0';
 end architecture memlike;
 
 --------------------------------------------------------------------------------
@@ -128,6 +128,7 @@ begin
 				"110" when "110",
 				"111" when others;
 				
+	
 	r0: register8 PORT MAP(datain(7 downto 0), en_check(0), wri_check(0), r0_out);
 	r1: register8 PORT MAP(datain(15 downto 8),en_check(1), wri_check(1), r1_out);
 	r2: register8 PORT MAP(datain(23 downto 16),en_check(2), wri_check(2), r2_out);
@@ -147,8 +148,7 @@ entity adder_subtracter is
 		datain_b: in std_logic_vector(31 downto 0);
 		add_sub: in std_logic;
 		dataout: out std_logic_vector(31 downto 0);
-		co: out std_logic;
-		data_disp: out std_logic_vector(31 downto 0));
+		co: out std_logic);
 end entity adder_subtracter;
 
 architecture calc of adder_subtracter is
@@ -160,18 +160,13 @@ architecture calc of adder_subtracter is
 	          carry : out std_logic);
 	end component;
 	signal data_b: std_logic_vector(31 downto 0);
-	signal carryin: std_logic_vector(31 downto 0) :=x"00000000";
-	signal datab_comp: std_logic_vector(31 downto 0);
+	signal carryin: std_logic_vector(31 downto 0);
 	
 begin
 	data_b <= datain_b;
-	datab_comp <= not(datain_b(31))&not(datain_b(30))&not(datain_b(29))&not(datain_b(28))&not(datain_b(27))&not(datain_b(26))&not(datain_b(25))&not(datain_b(24))&not(datain_b(23))&not(datain_b(22))&not(datain_b(21))&not(datain_b(20))
-			&not(datain_b(19))&not(datain_b(18))&not(datain_b(17))&not(datain_b(16))&not(datain_b(15))&not(datain_b(14))&not(datain_b(13))&not(datain_b(12))&not(datain_b(11))&not(datain_b(10))&not(datain_b(9))&not(datain_b(8))
-			&not(datain_b(7))&not(datain_b(6))&not(datain_b(5))&not(datain_b(4))&not(datain_b(3))&not(datain_b(2))&not(datain_b(1))&not(datain_b(0));
 	with add_sub select
-		data_b <= datab_comp + "0000000000000001" when '1',
+		data_b <= not(datain_b) + carryin(0) when '1',
 			  datain_b when others;
-	data_disp <= datab_comp;
 	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), carryin(0), dataout(0), carryin(1));
 	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), carryin(1), dataout(1), carryin(2));
 	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), carryin(2), dataout(2), carryin(3));
