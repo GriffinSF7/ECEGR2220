@@ -165,8 +165,12 @@ architecture calc of adder_subtracter is
 begin
 	data_b <= datain_b;
 	with add_sub select
-		data_b <= not(datain_b) + carryin(0) when '1',
+		data_b <= not(datain_b) when '1',
 			  datain_b when others;
+
+	with add_sub select
+		carryin(0) <= '1' when '1',
+				'0' when others;
 	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), carryin(0), dataout(0), carryin(1));
 	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), carryin(1), dataout(1), carryin(2));
 	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), carryin(2), dataout(2), carryin(3));
