@@ -56,8 +56,8 @@ BEGIN
 		wait for 20 ns; 			-- result = 0x124578AB  and zeroOut = 0
 
 		-- Add test cases here to drive the ALU implementation
-		datain_a <= X"5A5A5A5A";
-		datain_b <= X"00000001";
+		dataina <= X"5A5A5A5A";
+		datainb <= X"00000001";
 		control <= "01000"; ---left by 1 bits, out = 0xB4B4B4B4
 
 		wait; -- will wait forever

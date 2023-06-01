@@ -12,7 +12,7 @@ QuestaSim-64 vcom 2022.2 Compiler 2022.04 Apr 25 2022
 -- Compiling architecture calc of adder_subtracter
 -- Compiling entity shift_register
 -- Compiling architecture shifter of shift_register
-** Warning: C:\Users\ttran19\OneDrive - Seattle University\Documents\ECEGR2220\Lab_4\registers.vhd(113): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: C:\Users\ttran19\OneDrive - Seattle University\Documents\ECEGR2220\Lab_4\registers.vhd(119): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
 -- Compiling entity and_or_register
 -- Compiling architecture bitwise of and_or_register
 

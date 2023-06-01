@@ -54,10 +54,15 @@ architecture calc of adder_subtracter is
 	signal carryin: std_logic_vector(31 downto 0);
 	
 begin
+	
 	with control select
-		data_b <= not(datain_b) + carryin(0) when "00001", --converting data to 2's complement for substraction
+		data_b <= not(datain_b) when "00001", --converting data to 2's complement for substraction
 			  datain_b when "00000",  --data for addition
 			 (others => '0') when others;
+	with control(0) select
+		carryin(0) <= '1' when '1',
+				'0' when others;
+
 	full_add0: fulladder PORT MAP(datain_a(0), data_b(0), carryin(0), dataout(0), carryin(1));
 	full_add1: fulladder PORT MAP(datain_a(1), data_b(1), carryin(1), dataout(1), carryin(2));
 	full_add2: fulladder PORT MAP(datain_a(2), data_b(2), carryin(2), dataout(2), carryin(3));
@@ -103,6 +108,7 @@ Use ieee.std_logic_unsigned.all;
 entity shift_register is
 	port(	datain1: in std_logic_vector(31 downto 0);
 		datain2: in std_logic_vector(31 downto 0);
+		control: in std_logic_vector(4 downto 0);
 		dataout: out std_logic_vector(31 downto 0));
 end entity shift_register;
 
@@ -110,13 +116,13 @@ architecture shifter of shift_register is
 
 begin
 	-- insert code here.
-	with datain2(4) & datain2(3 downto 0) select
-		dataout	<=	datain1 (30 downto 0) & "0" when "00001", --shift left by 1
-				datain1 (29 downto 0) & "00" when "00010", --shift left by 2
-				datain1 (28 downto 0) & "000" when "00011", --shift left by 3
-				"0" & datain1(31 downto 1) when "10001", --shift right by 1
-				"00" & datain1(31 downto 2) when "10010", --shift right by 2
-				"000" & datain1(31 downto 3) when "10011", --shift right by 3
+	with control & datain2(2 downto 0) select
+		dataout	<=	datain1 (30 downto 0) & "0" when "01000001", --shift left by 1
+				datain1 (29 downto 0) & "00" when "01000010", --shift left by 2
+				datain1 (28 downto 0) & "000" when "01000011", --shift left by 3
+				"0" & datain1(31 downto 1) when "10000001", --shift right by 1
+				"00" & datain1(31 downto 2) when "10000010", --shift right by 2
+				"000" & datain1(31 downto 3) when "10000011", --shift right by 3
 				datain1 when others;
 
 end architecture shifter;
@@ -151,7 +157,7 @@ begin
 					&(datain1(7) or datain2(7))&(datain1(6) or datain2(6))&(datain1(5) or datain2(5))&(datain1(4) or datain2(4))&(datain1(3) or datain2(3))&(datain1(2) or datain2(2))&(datain1(1) or datain2(1))&(datain1(0) or datain2(0));
 	
 	with control select
-		dataout <= and_out when "01000", --and selected,
-		 	   or_out when "10000", --or selected,
+		dataout <= and_out when "00010", --and selected,
+		 	   or_out when "00100", --or selected,
 			   x"00000000" when others;
 end bitwise;

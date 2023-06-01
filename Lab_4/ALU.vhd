@@ -30,6 +30,7 @@ architecture ALU_Arch of ALU is
 	component shift_register
 		port(	datain1: in std_logic_vector(31 downto 0);
 			datain2: in std_logic_vector(31 downto 0);
+			control: in std_logic_vector(4 downto 0);
 			dataout: out std_logic_vector(31 downto 0));
 	end component shift_register;
 	
@@ -48,15 +49,16 @@ architecture ALU_Arch of ALU is
 begin
 	-- Add ALU VHDL implementation here
 	ALU_addsub: adder_subtracter PORT MAP (DataIn1, DataIn2, ALUCtrl, addsub_out, carryout);
-	ALU_shift: shift_register PORT MAP (DataIn1, DataIn2, shift_out);
+	ALU_shift: shift_register PORT MAP (DataIn1, DataIn2, ALUCtrl, shift_out);
 	ALU_and_or: and_or_register PORT MAP (DataIn1, DataIn2, ALUCtrl, andor_out);
 
 	with ALUCtrl select
 		aluRe_internal <= addsub_out when "00000",
 				addsub_out when "00001",
-				shift_out when "00100",
-				andor_out when "01000",
-				andor_out when "10000",
+				andor_out when "00010",
+				andor_out when "00100",
+				shift_out when "01000",
+				shift_out when "10000",
 				x"00000000" when others;
 	
 	with aluRe_internal select
