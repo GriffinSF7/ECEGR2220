@@ -36,7 +36,7 @@ fixed:
 	
 	mul		t2, t1, t0	# low 32 bits
 	mulh	t3, t1, t0	# high 32 bits
-
+	
 	li	a7,4			#system call for print string
 	la	a0,announ
 	ecall

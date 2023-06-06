@@ -57,11 +57,12 @@ Fibonacci:
 elseif:
 	addi	t2, zero, 1
 	bne	t0, t2, else	#if n not= 1, branch to else
-	addi	t1, zero, 1
+	addi	a0, zero, 1
 	j return
 
 else:
-	addi	sp, sp, -4	#adjust stack for 1 elements
+	addi	sp, sp, -8	#adjust stack for 1 elements
+	sw	ra, 4(sp)
 	sw	a0, 0(sp)	#save a into stack
 	addi	t0, t0, -1	# n = n-1
 	jal	Fibonacci
@@ -70,12 +71,12 @@ else:
 	sw	a0, 0(sp)
 	addi	t0, t0, -2	# n = n-2
 	jal	Fibonacci
+	lw	ra, 4(sp)
 	lw	a0, 0(sp)
 	add	a0, a0, t1
 	sw	a0, 0(sp)
-	addi	sp, sp, 4	 
+	addi	sp, sp, 8	 
 	ret
 	
-
 return:
 	ret
