@@ -1,0 +1,459 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+!s11e vcom 2022.2 2022.04, Apr 25 2022
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Siemens/questasim64_2022.2/examples
+T_opt
+!s110 1686101044
+V?J7R:96A>a42nTacPf`k?2
+Z2 04 11 8 work tmemory_vhd behavior 1
+=1-d8bbc1e5fd3a-647fdc34-a8-2ce4
+R0
+Z3 !s124 OEM100
+o-quiet -auto_acc_if_foreign -work work
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2022.2;75
+R1
+T_opt1
+!s110 1686101103
+VLCEM=3Pb01KDD:_dXe8dc1
+R2
+=1-d8bbc1e5fd3a-647fdc6f-149-ed4
+R0
+R3
+o-quiet -auto_acc_if_foreign -work work +acc
+R4
+n@_opt1
+R5
+Eadder_subtracter
+Z6 w1685590477
+Z7 DPx4 ieee 15 std_logic_arith 0 22 B[jVX6I8iRX2o6WYW0BB>3
+Z8 DPx4 ieee 18 std_logic_unsigned 0 22 o4hn5gYc0WVo72BSL@Ta50
+Z9 DPx4 ieee 11 numeric_std 0 22 F8@]:i<mFK7<TjIzKcTGi0
+Z10 DPx3 std 6 textio 0 22 LS[?81n5ZHWBI9JkBZTV<2
+Z11 DPx4 ieee 14 std_logic_1164 0 22 6<US`=mgl_dFdCEFF7J=m1
+!i122 6
+Z12 dC:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/Lab5_VHD
+Z13 8C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_3/registers.vhd
+Z14 FC:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_3/registers.vhd
+l0
+L146 1
+V?4b<3Z:ilRZIKc<LJ0R_N1
+!s100 DQ`7JU`e:LH=bl?8RG2Og1
+Z15 OL;C;2022.2;75
+32
+Z16 !s110 1686100860
+!i10b 1
+Z17 !s108 1686100860.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_3/registers.vhd|
+Z19 !s107 C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_3/registers.vhd|
+!i113 0
+Z20 o-work work -2002 -explicit
+Z21 tExplicit 1 CvgOpt 0
+Acalc
+R7
+R8
+R9
+R10
+R11
+DEx4 work 16 adder_subtracter 0 22 ?4b<3Z:ilRZIKc<LJ0R_N1
+!i122 6
+l165
+L154 54
+Vk=49hKPZ7N:8e8ZVKWg521
+!s100 YO:1OJIAR8A73a_nfQHh42
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Ebitstorage
+Z22 w1686101021
+R7
+R8
+R9
+R10
+R11
+!i122 8
+R12
+Z23 8C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/Memory.vhd
+Z24 FC:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/Memory.vhd
+l0
+Z25 L11 1
+VhcYYCnKHlMBhN14`CJ36N1
+!s100 DZ7MLb9JZg;2G5VJ[aPX70
+R15
+32
+Z26 !s110 1686101022
+!i10b 1
+Z27 !s108 1686101022.000000
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/Memory.vhd|
+Z29 !s107 C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/Memory.vhd|
+!i113 0
+R20
+R21
+Amemlike
+R7
+R8
+R9
+R10
+R11
+DEx4 work 10 bitstorage 0 22 hcYYCnKHlMBhN14`CJ36N1
+!i122 8
+l20
+L18 13
+VhPCi@c`EF@Zg3LQdTYCRi3
+!s100 f?D7`6bZgI=5QdT@o:0@@1
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Efulladder
+R6
+R7
+R8
+R9
+R10
+R11
+!i122 6
+R12
+R13
+R14
+l0
+Z30 L39 1
+VS7;hIV:Iz9XGV^^B2Ggd<0
+!s100 lzL@JjQGX3NDS0ALHz8YG0
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Aaddlike
+R7
+R8
+R9
+R10
+R11
+DEx4 work 9 fulladder 0 22 S7;hIV:Iz9XGV^^B2Ggd<0
+!i122 6
+l49
+L48 5
+VO0J5jJj8?`^RDeefiW7?42
+!s100 8Y=T;0ok]bfSQ`5P9n2NC3
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Eram
+R22
+R7
+R8
+R9
+R10
+R11
+!i122 8
+R12
+R23
+R24
+l0
+L122 1
+VoG^Pn6c`MMdZI<3j10laU1
+!s100 4DaD7Y1mS1e2bI2hN@=]U3
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Astaticram
+R7
+R8
+R9
+R10
+R11
+DEx4 work 3 ram 0 22 oG^Pn6c`MMdZI<3j10laU1
+!i122 8
+l137
+L132 42
+V0EOhbn_MEN2R7Acm0mo;20
+!s100 >@WGhHIj2fH8SzX^ePH`Z1
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Eregister32
+R22
+R7
+R8
+R9
+R10
+R11
+!i122 8
+R12
+R23
+R24
+l0
+L74 1
+V;<9RSWaVdPZaN[017?Nne2
+!s100 e:Ood1;1dD0mZ26KP[WG01
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Abiggermem
+R7
+R8
+R9
+R10
+R11
+DEx4 work 10 register32 0 22 ;<9RSWaVdPZaN[017?Nne2
+!i122 8
+l94
+L81 35
+VRJo@_5TMQU;hz;dZ>7BdL3
+!s100 6<iW0h:7nVH`z^gK;5=__3
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Eregister8
+R22
+R7
+R8
+R9
+R10
+R11
+!i122 8
+R12
+R23
+R24
+l0
+R30
+VP60mIWK`ebdmZf]k3kk9=3
+!s100 zl7PIWYE9mE?]mH5Xng5E3
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Amemmy
+R7
+R8
+R9
+R10
+R11
+DEx4 work 9 register8 0 22 P60mIWK`ebdmZf]k3kk9=3
+!i122 8
+l55
+L46 21
+VDNdoHZbQ0c[VUXEPMD]G@0
+!s100 NaN^aI4o1aHR]eJ@Wec8_1
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Eregisters
+R22
+R7
+R8
+R9
+R10
+R11
+!i122 8
+R12
+R23
+R24
+l0
+L182 1
+VTE=kWNVk6n`1bSfOaI9zU2
+!s100 [Ueh8BKjo;7ll31P<b^4W0
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Aremember
+R7
+R8
+R9
+R10
+R11
+DEx4 work 9 registers 0 22 TE=kWNVk6n`1bSfOaI9zU2
+!i122 8
+l214
+L192 116
+V1z`DTRGUJJH_4Dil5010>2
+!s100 9Ijz9H1]K@e_^lMgFBH770
+R15
+32
+R26
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R20
+R21
+Eshift_register
+R6
+R7
+R8
+R9
+R10
+R11
+!i122 6
+R12
+R13
+R14
+l0
+L215 1
+VEjaBSfY_nc]0h`zQ9W7a21
+!s100 9cz2DRMb>Ue@DA98fTHEz1
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Ashifter
+R7
+R8
+R9
+R10
+R11
+DEx4 work 14 shift_register 0 22 EjaBSfY_nc]0h`zQ9W7a21
+!i122 6
+l224
+L222 14
+VQ_cS7kCK@dLJDM@4EH@6R3
+!s100 zB>>Gj6W2WLkgz6W7TOLJ2
+R15
+32
+R16
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R20
+R21
+Etmemory_vhd
+Z31 w1684022723
+R7
+R8
+R9
+R10
+R11
+!i122 0
+R12
+Z32 8C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/tMemory.vhd
+Z33 FC:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/tMemory.vhd
+l0
+R25
+VoS<:>PmPe_7TQS`KU3<<S3
+!s100 gAlMMnRTUHkE[BAG]KdDK0
+R15
+32
+Z34 !s110 1686096533
+!i10b 1
+Z35 !s108 1686096532.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/tMemory.vhd|
+Z37 !s107 C:/Users/ttran19/OneDrive - Seattle University/Documents/ECEGR2220/Lab_5/tMemory.vhd|
+!i113 0
+R20
+R21
+Abehavior
+R7
+R8
+R9
+R10
+R11
+DEx4 work 11 tmemory_vhd 0 22 oS<:>PmPe_7TQS`KU3<<S3
+!i122 0
+l55
+L14 259
+VY9GO5hkgWU[N2HMF<@DHX3
+!s100 WlTSFPL>K?h@o^<CYk`kY0
+R15
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 0
+R20
+R21

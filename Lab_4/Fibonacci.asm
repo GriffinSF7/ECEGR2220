@@ -8,7 +8,9 @@
 .text
 
 main:
-	
+	lw	t3, a_int
+	lw	t4, b_int
+	lw	t5, c_int
 	
 	addi	sp, sp, -8	#adjust stack for 1 elements
 	sw	ra, 4(sp)
@@ -39,13 +41,11 @@ main:
 	lw	ra, 4(sp)
 	lw	t0, 0(sp)
 	addi	sp, sp, 8
-	
-	li	a7, 1		
-	lw	a0, a_int
-	lw	a1, b_int
-	lw	a2, c_int
-	ecall
-	
+		
+	sw	t3, a_int, t1
+	sw	t4, b_int, t1
+	sw	t5, c_int, t1
+
 	li	a7, 10
 	ecall
 
